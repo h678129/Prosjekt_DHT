@@ -94,8 +94,10 @@ public class ChordProtocols {
 				createRing((Node) chordnode);		// no node is available, create a new ring
 			}
 		} catch (NumberFormatException | RemoteException e1) {
-			// TODO Auto-generated catch block
+			logger.error("Exception caught while trying to join ring: " + e1.getMessage());
+			e1.printStackTrace();  // (valgfritt, hvis du vil ha full stack trace i konsollen)
 		}
+
 	}
 	
 	private void createRing(Node node) throws RemoteException {
