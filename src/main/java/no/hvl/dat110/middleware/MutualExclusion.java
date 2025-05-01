@@ -112,7 +112,6 @@ public class MutualExclusion {
 		}
 
 		// obtain a stub for each node from the registry
-
 		// call onMutexRequestReceived()
 
 	}
@@ -163,12 +162,6 @@ public class MutualExclusion {
 				NodeInterface stub = Util.getProcessStub(procName, port);
 				stub.onMutexAcknowledgementReceived(message);
 
-				// get a stub for the sender from the registry
-
-				// acknowledge message
-
-				// send acknowledgement back by calling onMutexAcknowledgementReceived()
-
 				break;
 			}
 
@@ -203,7 +196,6 @@ public class MutualExclusion {
 				// if clocks are the same, compare nodeIDs, the lowest wins
 
 				// if sender wins, acknowledge the message, obtain a stub and call onMutexAcknowledgementReceived()
-
 				// if sender looses, queue it
 
 				break;
@@ -215,8 +207,6 @@ public class MutualExclusion {
 	}
 
 	public synchronized void onMutexAcknowledgementReceived(Message message) throws RemoteException {
-
-		// add message to queueack
 		queueack.add(message);
 
 	}
@@ -235,11 +225,6 @@ public class MutualExclusion {
 				e.printStackTrace();
 			}
 		}
-		// iterate over the activenodes
-
-		// obtain a stub for each node from the registry
-
-		// call releaseLocks()
 	}
 
 	private synchronized boolean areAllMessagesReturned(int numvoters) throws RemoteException {
@@ -252,9 +237,6 @@ public class MutualExclusion {
 		}
 
 		return false;
-		// clear the queueack
-
-		// return true if yes and false if no
 
 	}
 
